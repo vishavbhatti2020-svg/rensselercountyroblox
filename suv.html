@@ -1,89 +1,146 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Best SUVs</title>
-  <link rel="stylesheet" href="style.css">
+<title>Best SUVs</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
 <div id="sideMenu" class="side-menu">
-  <a href="index.html">Home</a>
-  <a href="suv.html">Best SUVs</a>
-  <a href="race.html">Best Race Cars</a>
-  <a href="sedan.html">Best Sedans</a>
-  <a href="premiumvehicleaccesscars.html">Premium Vehicles</a>
+<a href="index.html">Home</a>
+<a href="suv.html">Best SUVs</a>
+<a href="race.html">Best Race Cars</a>
+<a href="sedan.html">Best Sedans</a>
+<a href="premiumvehicleaccesscars.html">Premium Vehicles</a>
 </div>
 
 <div class="content">
 
-  <h1>Best SUVs (No Subscription)</h1>
+<h1>Best SUVs (No Subscription)</h1>
 
-  <div class="car-container">
+<div class="car-container">
 
-    <div class="car-card">
-      <img src="images/manitou.jpg" alt="2025 EVA Manitou">
-      <div class="car-info">
-        <h2>2025 EVA Manitou</h2>
-        <p><strong>Price:</strong> $32,650</p>
-        <p>A modern SUV with strong road presence and smooth driving experience.</p>
-      </div>
-    </div>
+<div class="car-card" onclick="openCar('manitou')">
+<img src="images/manitou.jpg">
+<h3>2025 EVA Manitou</h3>
+<p>Price: $32,650</p>
+</div>
 
-    <div class="car-card">
-      <img src="images/sigmund.jpg" alt="Katzmann Sigmund">
-      <div class="car-info">
-        <h2>Katzmann Sigmund</h2>
-        <p><strong>Price:</strong> $25,625</p>
-        <p>A balanced SUV offering reliability and excellent value for money.</p>
-      </div>
-    </div>
+<div class="car-card" onclick="openCar('sigmund')">
+<img src="images/sigmund.jpg">
+<h3>Katzmann Sigmund</h3>
+<p>Price: $25,625</p>
+</div>
 
-    <div class="car-card">
-      <img src="images/2019sigmund.jpg" alt="2019 Katzmann Sigmund">
-      <div class="car-info">
-        <h2>2019 Katzmann Sigmund</h2>
-        <p><strong>Price:</strong> $17,000</p>
-        <p>An affordable SUV perfect for beginners wanting comfort and space.</p>
-      </div>
-    </div>
+<div class="car-card" onclick="openCar('sigmund19')">
+<img src="images/2019sigmund.jpg">
+<h3>2019 Katzmann Sigmund</h3>
+<p>Price: $17,000</p>
+</div>
 
-    <div class="car-card">
-      <img src="images/pacer.jpg" alt="2021 Koritu Pacer">
-      <div class="car-info">
-        <h2>2021 Koritu Pacer</h2>
-        <p><strong>Price:</strong> $29,000</p>
-        <p>A powerful SUV with smooth handling and solid performance.</p>
-      </div>
-    </div>
+<div class="car-card" onclick="openCar('pacer')">
+<img src="images/pacer.jpg">
+<h3>2021 Koritu Pacer</h3>
+<p>Price: $29,000</p>
+</div>
 
-    <div class="car-card">
-      <img src="images/pinnacle.jpg" alt="2023 Senseon Pinnacle">
-      <div class="car-info">
-        <h2>2023 Senseon Pinnacle</h2>
-        <p><strong>Price:</strong> $37,365</p>
-        <p>A premium SUV with advanced features and modern styling.</p>
-      </div>
-    </div>
+<div class="car-card" onclick="openCar('pinnacle')">
+<img src="images/pinnacle.jpg">
+<h3>2023 Senseon Pinnacle</h3>
+<p>Price: $37,365</p>
+</div>
 
-    <div class="car-card">
-      <img src="images/ik4.jpg" alt="2023 Katzmann IK.4">
-      <div class="car-info">
-        <h2>2023 Katzmann IK.4</h2>
-        <p><strong>Price:</strong> $38,790</p>
-        <p>A stylish high-performance SUV built for comfort and speed.</p>
-      </div>
-    </div>
+<div class="car-card" onclick="openCar('ik4')">
+<img src="images/ik4.jpg">
+<h3>2023 Katzmann IK.4</h3>
+<p>Price: $38,790</p>
+</div>
 
-  </div>
+</div>
+</div>
+
+<!-- POPUP -->
+
+<div id="carPopup" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closeCar()">✖</span>
+
+<h2 id="carTitle"></h2>
+
+<p id="carPrice"></p>
+
+<p id="carFeatures"></p>
+
+<p id="carOpinion"></p>
+
+</div>
+
 </div>
 
 <script>
+
 function toggleMenu() {
-  var menu = document.getElementById("sideMenu");
-  menu.classList.toggle("show");
+var menu = document.getElementById("sideMenu");
+menu.classList.toggle("show");
 }
+
+function openCar(car){
+
+document.getElementById("carPopup").style.display="flex";
+
+if(car=="manitou"){
+document.getElementById("carTitle").innerText="2025 EVA Manitou";
+document.getElementById("carPrice").innerText="Price: $32,650";
+document.getElementById("carFeatures").innerText="Features: Auto Start Stop, Modern Look, Key Not Detected system.";
+document.getElementById("carOpinion").innerText="Dev Opinion: Stylish modern SUV with useful smart features.";
+}
+
+if(car=="sigmund"){
+document.getElementById("carTitle").innerText="Katzmann Sigmund";
+document.getElementById("carPrice").innerText="Price: $25,625";
+document.getElementById("carFeatures").innerText="Features: Auto Start Stop, Key Not Detected system, Auto Closing Mirrors in some variants.";
+document.getElementById("carOpinion").innerText="Dev Opinion: Reliable SUV with useful comfort features.";
+}
+
+if(car=="sigmund19"){
+document.getElementById("carTitle").innerText="2019 Katzmann Sigmund";
+document.getElementById("carPrice").innerText="Price: $17,000";
+document.getElementById("carFeatures").innerText="Features: Auto Start Stop, Key Not Detected system, Auto Closing Mirrors in some variants.";
+document.getElementById("carOpinion").innerText="Dev Opinion: Affordable SUV with good practicality.";
+}
+
+if(car=="pacer"){
+document.getElementById("carTitle").innerText="2021 Koritu Pacer";
+document.getElementById("carPrice").innerText="Price: $29,000";
+document.getElementById("carFeatures").innerText="Features: Comfortable interior, smooth driving and good reliability.";
+document.getElementById("carOpinion").innerText="Dev Opinion: Balanced SUV for daily driving.";
+}
+
+if(car=="pinnacle"){
+document.getElementById("carTitle").innerText="2023 Senseon Pinnacle";
+document.getElementById("carPrice").innerText="Price: $37,365";
+document.getElementById("carFeatures").innerText="Features: Premium interior, modern technology and advanced driving systems.";
+document.getElementById("carOpinion").innerText="Dev Opinion: One of the most premium SUVs available.";
+}
+
+if(car=="ik4"){
+document.getElementById("carTitle").innerText="2023 Katzmann IK.4";
+document.getElementById("carPrice").innerText="Price: $38,790";
+document.getElementById("carFeatures").innerText="Features: Sporty design, strong performance and luxury comfort.";
+document.getElementById("carOpinion").innerText="Dev Opinion: Powerful SUV with aggressive styling.";
+}
+
+}
+
+function closeCar(){
+document.getElementById("carPopup").style.display="none";
+}
+
 </script>
 
 </body>
